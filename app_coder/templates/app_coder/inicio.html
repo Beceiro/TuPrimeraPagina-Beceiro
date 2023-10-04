@@ -1,0 +1,24 @@
+{% extends "app_coder/parent.html" %}
+
+{% load static %}
+
+{% block head %}<title>Principal</title>{% endblock head %}
+
+{% block blockchanges %}
+
+
+    <!-- Aquí va lo que cambia, y lo asociado a está vista -->
+
+    <h3>Podes crear un cliente:</h3>
+
+    <form action="" method="get">
+        {% csrf_token %}
+        <p>Cliente: <input type="text" name="nombre" id="nombre" /></p>
+        <p>Descripción: <input type="text" name="description" id="description" /></p>
+        <table>
+            {{formulario}}
+        </table>
+        <input type="submit" value="Crear" />
+    </form>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "app_coder/parent.html" %}
+
+{% load static %}
+
+{% block head %}<title>Clientes</title>{% endblock head %}
+
+{% block blockchanges %}
+
+
+    <!-- Aquí va lo que cambia, y lo asociado a está vista -->
+
+    <h3>Podes buscar un cliente:</h3>
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        <input type="text" name="nombre" id="name">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
+    <form action="">
+        {{formulario}}
+        <input type="submit" value="Buscar" />
+    </form>
+
+    {% if clientes_encontrados %}
+    <ul>
+        {% for cliente in clientes_encontrados %}
+        <li>
+            <a href={% url "detalle_cliente" customer.name %}>{{customer}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se encontraron cursos.</p>
+    {% endif %}
+
+{% endblock %}
