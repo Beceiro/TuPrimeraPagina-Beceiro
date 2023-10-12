@@ -7,8 +7,20 @@ from app_coder.forms import CustomerForm
 # Create your views here.
 
 def inicio(request):
-        
-    return render(request, 'app_coder/inicio.html')
+    formulario = CustomerForm()
+    if request.method == 'POST':
+        formulario = CustomerForm(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            cliente = Customer(name=data['nombre'], description=data['descripcion'])
+            cliente.save()
+            return redirect('customer')
+        else:
+            return render(request, 'app_coder\inicio.html', {'formulario': formulario})
+            
+    # formulario = CustomerForm()
+    return render(request, 'app_coder\inicio.html', {'formulario': formulario})
+    # return render(request, 'app_coder/inicio.html')
 
 def create_customer(request):
     
