@@ -9,11 +9,13 @@
     <!-- Aquí va lo que cambia, y lo asociado a está vista -->
     <div class="text-center" style="margin-left: auto; margin-right: auto;">
         <h3>Podes crear un cliente:</h3>
+        <br>
         <form method="POST" action="">
             {% csrf_token %}
             <table style="margin-left: auto; margin-right: auto;">
                 {{formulario}}
             </table>
+            <br>
             <input type="submit" value="Crear"/>
         </form>
     </div>

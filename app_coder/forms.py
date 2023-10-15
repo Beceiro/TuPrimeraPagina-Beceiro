@@ -2,5 +2,10 @@ from django import forms
 
 class CustomerForm(forms.Form):
     #Especificar los campos
-    nombre = forms.CharField(max_length=30)
-    descripcion = forms.CharField(max_length=50)
+    name = forms.CharField(max_length=30)
+    description = forms.CharField(max_length=50)
+    
+class SearchForm(forms.Form):
+    #Especificar los campos
+    name = forms.CharField(max_length=30)
+    description = forms.CharField(max_length=50)
